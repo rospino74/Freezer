@@ -1,0 +1,20 @@
+#
+# Copyright (c) 2020 MemoryOfLife
+# This file (plugin.yml) and its related project (Freezer) are governed by the Apache 2.0 license.
+# You may not use them except in compliance with the License which can be found at:
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+
+main: it.marko.freezer.Main
+version: '1.3 STABLE'
+name: "Freezer"
+author: MemoryOfLife
+load: POSTWORLD
+
+commands:
+  freeze:
+    description: "Immobilizza il player"
+    permission: freezer.freeze
+    usage: 'Uso: /<command> [player]'
+    aliases:
+      - fr
