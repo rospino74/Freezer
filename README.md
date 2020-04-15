@@ -19,5 +19,5 @@ Un giorno non sapevo che fare a causa del coronavirus 🦠 e i miei amici avevan
 ## Obbiettivi futuri 📅
 - [x] Far funzionare il plugin
 - [x] Darlo ai miei amici
-- [] Aggiungere comandi per lista completa players freezati
-- [] Trovare altre idee
+- [ ] Aggiungere comandi per lista completa players freezati
+- [ ] Trovare altre idee
