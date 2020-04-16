@@ -22,7 +22,7 @@ buildscript {
 }
 
 group = "it.marko.freezer"
-version = "1.3 STABLE"
+version = "1.4 BETA"
 
 apply(plugin = "com.github.johnrengelman.shadow")
 apply(plugin = "java")

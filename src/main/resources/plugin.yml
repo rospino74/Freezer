@@ -6,7 +6,7 @@
 #
 
 main: it.marko.freezer.Main
-version: '1.3 STABLE'
+version: '1.4 BETA'
 name: "Freezer"
 author: MemoryOfLife
 load: POSTWORLD
@@ -18,3 +18,10 @@ commands:
     usage: 'Uso: /<command> [player]'
     aliases:
       - fr
+  freezer:
+    description: "Visualizza informazioni relative al plugin"
+    permissions:
+      freezer.freezer:
+        description: "Permesso per usare il comando /freezer"
+
+    usage: 'Uso: /<command> [sub-command]'
