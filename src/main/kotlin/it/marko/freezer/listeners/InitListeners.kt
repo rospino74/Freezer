@@ -17,12 +17,14 @@ import it.marko.freezer.Main
  * @param plugin Il plugin dove instanziare i listeners
  */
 class InitListeners(private val plugin: Main) {
+    //lista delle classi
     private val classes = arrayOf(MoveListener::class, InteractListener::class, PlaceListener::class, BreakListener::class)
 
     /**
      * Instanzia le classi dei [listeners][org.bukkit.event.Listener]
      */
     fun bind() {
+        //per ogni classe instanzio la classe e la registro
         classes.forEach { c -> plugin.server.pluginManager.registerEvents(c.constructors.first().call(), plugin) }
     }
 

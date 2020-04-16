@@ -8,7 +8,6 @@
 package it.marko.freezer.commands
 
 import it.marko.freezer.Main
-import it.marko.freezer.listeners.MoveListener
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
