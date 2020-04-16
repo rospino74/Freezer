@@ -20,11 +20,10 @@ internal class MoveListener : Listener {
 
         // cancello evento se è nella lista e non ha il permesso
         if (list.getStringList("freezed").contains(p.uniqueId.toString()) && !p.hasPermission("freezer.ignore")) {
-            e.isCancelled = true
-
-            //permetto movimento della testa
-            p.location.pitch = e.to.pitch
-            p.location.yaw = e.to.yaw
+            //blocco il movimento
+            e.to.x = e.from.x
+            e.to.y = e.from.y
+            e.to.z = e.from.z
         }
     }
 }
