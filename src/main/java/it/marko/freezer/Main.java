@@ -8,6 +8,8 @@
 package it.marko.freezer;
 
 import it.marko.freezer.commands.FreezeExecutor;
+import it.marko.freezer.commands.FreezerExecutor;
+import it.marko.freezer.commands.FreezerTabCompleter;
 import it.marko.freezer.listeners.InitListeners;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -41,14 +43,15 @@ public class Main extends JavaPlugin {
     /**
      * Usa questo metodo per ottenere un'instanza di {@link YamlConfiguration} contenente i players freezati
      */
+    @NotNull
     public YamlConfiguration getFreezedPlayers() {
         return YamlConfiguration.loadConfiguration(freezedFile);
     }
 
     /**
      * Usa questo metodo per salvare un'instanza di {@link YamlConfiguration} contenente i players freezati.
-     *
-     * Nel caso in cui il {@link File} non dovesse essere disponibile il plugin verrà disattivato
+     * <p>
+     * <b>Nota:</b> Nel caso in cui il {@link File} non dovesse essere disponibile il plugin verrà disattivato
      *
      * @param freezedPlayers Istanza di {@link YamlConfiguration} contenente i players freezati
      */
@@ -85,9 +88,26 @@ public class Main extends JavaPlugin {
         //registro gli event listeners
         new InitListeners(this).bind();
 
-        //registro il comando
+        //registro il comando freeze
         getCommand("freeze").setExecutor(new FreezeExecutor());
 
+        //registro il comando freezer e il tab completer
+        getCommand("freezer").setExecutor(new FreezerExecutor());
+        getCommand("freezer").setTabCompleter(new FreezerTabCompleter());
+
+        //carico il file contenente gli utenti freezati
+        loadConfig();
+    }
+
+    /**
+     * Carica il {@link File} contenente i players freezati e lo ritorna.
+     * Per ottenere un'instanza di {@link YamlConfiguration} relativa alla lista usare il metodo {@link #getFreezedPlayers()}
+     * <p>
+     * <b>Nota:</b> è preferibile utilizzare i metodi {@link #getFreezedPlayers()} e {@link #saveFreezedPlayers(YamlConfiguration)} per salvare e caricare le configurazioni
+     *
+     * @return {@link File} di configurazione
+     */
+    public File loadConfig() {
         //apro il file degli utenti freezati
         File f = new File(getDataFolder(), "freezed.yml");
 
@@ -117,5 +137,7 @@ public class Main extends JavaPlugin {
 
         //assegno il config
         freezedFile = f;
+
+        return f;
     }
 }
