@@ -23,5 +23,6 @@ commands:
     permissions:
       freezer.freezer:
         description: "Permesso per usare il comando /freezer"
-
     usage: 'Uso: /<command> [sub-command]'
+    aliases:
+      - frz
